@@ -1,0 +1,95 @@
+.modal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(34 29 29 / 89%);
+  z-index: 2;
+}
+
+.modal-img{
+  position: relative;
+  border-radius: 10px !important;
+}
+
+.modal-img:hover{
+  animation:shadow-drop-center 0.25s linear both;
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins';
+  background-size: cover;
+  border-radius: 14px;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 2em;
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  background: linear-gradient(135deg, rgb(35 20 46 / 18%), rgb(53 90 90 / 20%));
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0);
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  border-radius: 32px;
+  animation: scale-up-vertical-center 0.60s;
+}
+@keyframes scale-up-vertical-center{
+  0%{
+    transform:scaleY(.2);
+  }
+  100%{
+    transform:scaleY(1);
+  }
+}
+
+.modal-info{
+  display: grid;
+  font-size: 18px;
+  color: white;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  letter-spacing: 4px;
+  text-align: left;
+  margin-top: 1em;
+}
+
+.modal-btn{
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 36px;
+  height: 30px;
+  border: none !important;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.modal-btn:hover{
+  animation:shadow-drop-center 0.2s linear both;
+}
+
+@keyframes shadow-drop-center{
+  0%{
+    box-shadow:0 0 0 0 transparent;
+  }
+  100%{
+    box-shadow:0 0 20px 0 rgba(255,255,255,.55);
+  }
+}
+
+@media screen and (max-width: 767px){
+  .modal-content{
+    width: 100%;
+    max-width: none;
+  }
+}

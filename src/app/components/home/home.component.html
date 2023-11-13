@@ -1,0 +1,57 @@
+<body>
+
+
+  <div class="center-title">
+    <h1 class="title">Rick and Morty</h1>
+  </div>
+
+  <div class="center">
+    <div class="grid-input">
+      <input type="text" class="input-filter" placeholder="Search..." name="fitler" [(ngModel)]="filter">
+
+      <select class="select-order" [(ngModel)]="option" (ngModelChange)="changeOption($event)">
+        <option value="Alive">Alive</option>
+        <option value="Dead">Dead</option>
+        <option value="unknown">Unknown</option>
+        <option value="All">All status</option>
+      </select>
+
+      <div class="arrows">
+        <div class="up-arrow" (click)="changeOrder('asc')"></div>
+        <div class="down-arrow" (click)="changeOrder('desc')"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="space-items"></div>
+
+  <div class="grid">
+    <div class="card"
+    *ngFor="let character of charactersDataApi | filterByOptions: option | orderCharacters: order | paginate : {itemsPerPage: 12, currentPage: page} | filterCharacters: filter"
+    [ngStyle]="{'background': 'url(' + character.image + ') center no-repeat'}"
+    (click)="getCharacter(character.id)"
+    >
+      <div class="card-content">
+        <h1>{{character.name}}</h1>
+        <p>{{character.location.name}}</p>
+        <p>{{character.species}}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="center">
+    <pagination-controls class="paginator"
+    [directionLinks]="directionLinks"
+    [autoHide]="autoHide"
+    [responsive]="responsive"
+    [previousLabel]="labels.previousLabel"
+    [nextLabel]="labels.nextLabel"
+    [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+    [screenReaderPageLabel]="labels.screenReaderPageLabel"
+    [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+
+    (pageChange)="page = $event"></pagination-controls>
+  </div>
+
+</body>

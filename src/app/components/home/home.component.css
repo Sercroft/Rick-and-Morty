@@ -1,0 +1,244 @@
+body  {
+  background-color: #202329;
+}
+
+.center-title{
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.title {
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 36px;
+  color: #ffffff;
+}
+
+.center{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #202329;
+}
+
+
+.space-items{
+  height: 2rem;
+  background-color: #202329;
+}
+
+/* Cardview */
+.card{
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background-size: cover;
+  border-radius: 14px;
+  box-shadow: -12px 17px 13px -4px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+
+.card-content{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.card:hover{
+  animation:shadow-pop-bottom-left 0.4s linear both;
+}
+
+.card-content:hover{
+  opacity: .5;
+  background-color: rgba(0, 0, 0, 0.616);
+  animation: fadeIn 0.2s linear both;
+  animation-delay: 0.2s;
+}
+@keyframes shadow-pop-bottom-left{
+  0%{
+    box-shadow:0 0 #000000,0 0 #000000,0 0 #000000,0 0 #000000,0 0 #000000,0 0 #000000,0 0 #000000,0 0 #000000;
+    transform:translateX(0) translateY(0)
+  }
+
+  50%{
+    box-shadow:-1px 1px #000000,-2px 2px #000000,-3px 3px #000000,-4px 4px #000000,-5px 5px #000000,-6px 6px #000000,-7px 7px #000000,-8px 8px #000000;
+    transform:translateX(1px) translateY(-2px)
+  }
+
+  100%{
+    box-shadow:-1px 1px #000000,-2px 2px #000000,-3px 3px #000000,-4px 4px #000000,-5px 5px #000000,-6px 6px #000000,-7px 7px #000000,-8px 8px #000000;
+    transform:translateX(8px) translateY(-8px)
+  }
+}
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+/* Grid */
+.grid{
+  display: grid;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(265px, 1fr)
+    );
+  grid-gap: 20px;
+  background-color: #202329;
+}
+
+.grid-input{
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  grid-gap: 20px;
+  background-color: #202329;
+}
+
+/* Paginator */
+.paginator{
+  font-size: 16px !important;
+  font-family: 'Poppins';
+  font-weight: 300;
+  background: #4b5058;
+  color: white;
+  margin-left: 0 !important;
+  margin-top: 1rem !important;
+  line-height: 20px !important;
+  letter-spacing: 4px;
+  border-radius: 10px;
+}
+
+.paginator ::ng-deep .ngx-pagination .current{
+  text-align: center;
+  justify-content: center;
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-style: bold;
+  width: 14px;
+  height: 20px;
+  border-radius: 20px;
+  background: rgb(241, 239, 239);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+.paginator ::ng-deep .ngx-pagination a:hover, .ngx-pagination button:hover {
+  background: rgb(253, 253, 253);
+  border-radius: 8px;
+  text-decoration: none;
+  animation:shadow-drop-center 0.1s linear both;
+}
+
+@keyframes shadow-drop-center{
+  0%{
+    box-shadow:0 0 0 0 transparent;
+  }
+  100%{
+    box-shadow:0 0 10px 0 rgba(213, 221, 247, 0.63)
+  }
+}
+
+/* Filter */
+.input-filter{
+  width: 16rem;
+  height: 2rem;
+  font-size: 16px;
+  font-family: 'Poppins';
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  background: rgb(253, 252, 252);
+  color: black;
+  outline: none;
+  transition: background-color 0.3s, border-bottom 0.4s;
+}
+
+.select-order{
+  width: 17rem;
+  height: 3.2rem;
+  font-size: 16px;
+  font-family: 'Poppins';
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  color: black;
+  outline: none;
+  transition: background-color 0.3s, border-bottom 0.4s;
+}
+
+.input-filter:focus,
+.select-order:focus{
+  background-color: rgba(223, 235, 231, 0.966);
+}
+
+@media(max-width: 600px){
+  .grid-input{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Arrows */
+.arrows{
+  display: flex;
+  place-items: center;
+  width: auto;
+}
+
+.up-arrow{
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 15px solid #ffffff;
+  cursor: pointer;
+}
+
+.down-arrow{
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid #ffffff;
+  cursor: pointer;
+}
+
+.up-arrow:hover,
+.down-arrow:hover
+{
+  animation:shake-vertical 1.3s linear both
+}
+@keyframes shake-vertical{
+  0%,
+  100%{
+    transform:translateY(0);
+  }
+  10%,30%,50%,
+  70%{
+    transform:translateY(-4px);
+  }
+  20%,40%,
+  60%{
+    transform:translateY(4px);
+  }
+  80%{
+    transform:translateY(5px);
+  }
+  90%{
+    transform:translateY(-5px);
+  }
+}

@@ -1,0 +1,17 @@
+<div class="modal">
+  <div class="modal-content">
+    <img [src]="character[1].image" class="modal-img"/>
+
+    <article class="modal-info">
+      <p><strong style="color: gray;">Name: </strong><strong>{{character[1].name | capitalizedString : character[1].name}}</strong></p>
+      <p><strong style="color: gray;">Gender: </strong><strong>{{character[1].gender | capitalizedString : character[1].gender}}</strong></p>
+      <p><strong style="color: gray;">Status: </strong><strong [style.color]="getColor(character[1].status)">{{character[1].status | capitalizedString : character[1].status}}</strong></p>
+      <p><strong style="color: gray;">Specie: </strong><strong> {{character[1].species | capitalizedString : character[1].species}}</strong></p>
+      <p><strong style="color: gray;">Last known location: </strong><strong>{{character[1].location.name | capitalizedString : character[1].location.name}}</strong></p>
+      <p><strong style="color: gray;">Origin: </strong><strong>{{character[1].origin.name | capitalizedString : character[1].origin.name}}</strong></p>
+      <p><strong style="color: gray;">Specimen date creation: </strong><strong>{{character[1].created | formatDate}}</strong></p>
+    </article>
+
+    <button (click)="closeModal()" class="modal-btn"><strong>X</strong></button>
+  </div>
+</div>
